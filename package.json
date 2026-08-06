@@ -1,0 +1,32 @@
+{
+  "name": "decentralize-ai-hackathon",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hackernoon/pixel-icon-library": "^1.0.6",
+    "@next/third-parties": "^16.2.7",
+    "@types/three": "^0.183.1",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "^0.183.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^25",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.1.6",
+    "postcss": "^8",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

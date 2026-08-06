@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+@import "tailwindcss";
+@import "@hackernoon/pixel-icon-library/fonts/iconfont.css";
+
+@theme {
+  --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+  --font-funnel-display: "Funnel Display", ui-sans-serif, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Typography: Geist Mono (body), Funnel Display (headings) ─── */
+body {
+  font-family: var(--font-geist-mono);
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-funnel-display);
+}
+
+/* ─── Animated mesh background ─── */
+body {
+  background-color: #020812;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(0, 255, 136, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 110%, rgba(0, 180, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(120, 0, 255, 0.04) 0%, transparent 70%);
+}
+
+/* Dot-grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 255, 136, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Glassmorphism card utility ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-green {
+  background: rgba(0, 255, 136, 0.04);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 255, 136, 0.14);
+}
+
+.glass-red {
+  background: rgba(220, 38, 38, 0.06);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(239, 68, 68, 0.14);
+}
+
+/* ─── Glow utilities ─── */
+.glow-green {
+  box-shadow: 0 0 24px rgba(0, 255, 136, 0.15), 0 0 80px rgba(0, 255, 136, 0.05);
+}
+
+.glow-green-sm {
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.2);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #00ff88 0%, #00d4ff 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Animated border ─── */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(0, 255, 136, 0.2); }
+  50% { border-color: rgba(0, 255, 136, 0.45); }
+}
+
+.border-animate {
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+/* ─── Scanline shimmer on hero ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #ffffff 0%,  #ffffff 35%, #00ff88 50%, #ffffff 65%,  #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── Hero CTA (techno / cyberpunk) ─── */
+.hero-cta {
+  position: relative;
+}
+.hover\:shadow-hero-cta:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.5), 0 0 80px rgba(0, 255, 136, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Custom scrollbar ─── */
+.scrollbar-site::-webkit-scrollbar         { width: 4px; }
+.scrollbar-site::-webkit-scrollbar-track   { background: transparent; }
+.scrollbar-site::-webkit-scrollbar-thumb   { background: rgba(0, 255, 136, 0.25); border-radius: 99px; }
+.scrollbar-site::-webkit-scrollbar-thumb:hover { background: rgba(0, 255, 136, 0.5); }
+
+/* ─── Blog generator page background ─── */
+.blog-generator-bg {
+  background-image:
+    radial-gradient(circle at 50% -10%, rgba(0, 255, 136, 0.2), transparent 52%),
+    radial-gradient(circle at 12% 84%, rgba(0, 255, 136, 0.12), transparent 40%),
+    radial-gradient(circle at 88% 18%, rgba(109, 255, 191, 0.12), transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: auto, auto, auto, 44px 44px, 44px 44px;
+}
+
+.blog-generator-vignette {
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(2, 8, 18, 0.58) 100%);
+}
+
+/* ─── Blog generator question reveal animation ─── */
+@keyframes questionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.question-reveal {
+  animation: questionReveal 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── FAQ accordion (details/summary) ─── */
+.faq-item[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* ─── Hero upward-moving cell background ─── */
+/* Columns stay fixed; opacity wave moves up via script (HeroCellBackground.tsx) */
+.hero-cell-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-cell-col {
+  display: flex;
+  flex-flow: column;
+  gap: 0.25rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.hero-cell-col--var-1 { left: calc(50% - 48vw); }
+.hero-cell-col--var-2 { left: calc(50% - 34vw); }
+.hero-cell-col--var-3 { left: calc(50% - 20vw); }
+.hero-cell-col--var-4 { left: calc(50% - 6vw); }
+.hero-cell-col--var-5 { left: calc(50% + 6vw); }
+.hero-cell-col--var-6 { left: calc(50% + 20vw); }
+.hero-cell-col--var-7 { left: calc(50% + 34vw); }
+.hero-cell-col--var-8 { left: calc(50% + 48vw); }
+
+.hero-cell {
+  width: 0.5rem;
+  height: 3.33333vh;
+  background-color: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.4), 0 0 24px rgba(0, 255, 136, 0.2);
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity 0.14s ease-out;
+}
+
+/* ─── Premium Horizontal Audio Wave Animation ─── */
+.audio-waves-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5px;
+  width: 100%;
+  height: 28px;
+}
+
+.audio-wave-horizontal-bar {
+  width: 2.2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.22);
+  border-radius: 99px;
+  animation: wave-bounce 1s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+/* realistic audio spectrum frequencies using varying animation durations & delays */
+.audio-wave-horizontal-bar:nth-child(even) {
+  animation-duration: 0.65s;
+  animation-delay: 0.12s;
+  background-color: rgba(0, 255, 136, 0.72); /* HackerNoon green */
+  box-shadow: 0 0 4px rgba(0, 255, 136, 0.2);
+}
+
+.audio-wave-horizontal-bar:nth-child(3n) {
+  animation-duration: 0.88s;
+  animation-delay: 0.24s;
+  background-color: rgba(0, 212, 255, 0.72); /* Cyan */
+  box-shadow: 0 0 4px rgba(0, 212, 255, 0.2);
+}
+
+.audio-wave-horizontal-bar:nth-child(5n) {
+  animation-duration: 1.15s;
+  animation-delay: 0.38s;
+  background-color: rgba(168, 85, 247, 0.72); /* Purple */
+  box-shadow: 0 0 4px rgba(168, 85, 247, 0.2);
+}
+
+.audio-wave-horizontal-bar:nth-child(7n) {
+  animation-duration: 0.72s;
+  animation-delay: 0.08s;
+  background-color: rgba(255, 59, 107, 0.72); /* Rose/Red */
+  box-shadow: 0 0 4px rgba(255, 59, 107, 0.2);
+}
+
+@keyframes wave-bounce {
+  0% {
+    transform: scaleY(0.1);
+  }
+  100% {
+    transform: scaleY(0.95);
+  }
+}
+
